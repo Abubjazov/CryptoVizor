@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@material-ui/core";
 
-import { TCoin } from "../Interfaces/TCoin";
+import { TCoin } from "../../Interfaces/TCoin";
 
 const useStyles = makeStyles({
   tableContainer: {

@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-import { TCoin } from "../components/Interfaces/TCoin";
+import { TCoin } from "../Interfaces/TCoin";
 
 export const getCoinsData = (): TCoin[] | null => {
   Axios.get(

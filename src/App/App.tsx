@@ -4,7 +4,7 @@ import { Container, Grid } from "@material-ui/core";
 import AppMenu from "../components/AppMenu";
 import RateExchanger from "../components/RateExchanger";
 import CryptoCurrency from "../components/CryptoCurrency";
-import { TCoin } from "../components/Interfaces/TCoin";
+import { TCoin } from "../Interfaces/TCoin";
 import { getCoinsData } from "../Utils/Http";
 
 const App: FC = () => {
