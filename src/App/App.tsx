@@ -1,14 +1,8 @@
 import React, { FC } from "react";
-import FooterCaption from "../components/FooterCaption";
+import Container from "@material-ui/core/Container";
 
 const App: FC = () => {
-  return (
-    <>
-      <h1>ПривЬеД меДвеДЪ!!!!</h1>
-      <hr />
-      <FooterCaption text="ПревЬеД меДвьеДъ" />
-    </>
-  );
+  return <Container maxWidth="lg">13</Container>;
 };
 
 export default App;
