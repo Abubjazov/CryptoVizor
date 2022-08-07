@@ -1,31 +1,16 @@
 import React, { FC } from "react";
-import { makeStyles, Paper, Typography } from "@material-ui/core";
+import { Paper, Typography } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  toolbar: {
-    background: "#FFFFFF",
-    color: "#999999",
-  },
-  q: {
-    color: "#ff8c00",
-  },
-}));
+import CryptoTable from "../CryptoTable";
+import { CryptoTableProps } from "../CryptoTable/CryptoTable";
 
-const CryptoCurrency: FC = () => {
-  const classes = useStyles();
-
+const CryptoCurrency: FC<CryptoTableProps> = ({ coins }) => {
   return (
-    <Paper elevation={1} style={{ height: "300px", padding: "13px" }}>
-      <Typography variant="h5">Курсы криптовалют</Typography>
+    <Paper elevation={1} style={{ height: "auto", paddingTop: "13px" }}>
+      <Typography style={{ marginLeft: "13px" }} variant="h5">
+        Курсы криптовалют
+      </Typography>
+      <CryptoTable coins={coins} />
     </Paper>
   );
 };

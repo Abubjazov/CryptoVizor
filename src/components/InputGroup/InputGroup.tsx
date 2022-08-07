@@ -7,24 +7,30 @@ import {
   Select,
   TextField,
 } from "@material-ui/core";
+import { CryptoTableProps } from "../CryptoTable/CryptoTable";
 
 const useStyles = makeStyles((theme) => ({
   inputGroup: {
-    marginTop: "13px",
+    height: "50px",
+    marginTop: "20px",
     display: "flex",
     justifyContent: "space-between",
+    alignItems: "flex-end",
   },
-  input: { marginTop: "8px", width: "45%" },
+  input: { width: "45%" },
   formControl: {
-    margin: theme.spacing(1),
     width: "45%",
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
   },
+  coinWrapper: {
+    display: "flex",
+    alignItems: "center",
+  },
 }));
 
-const InputGroup: FC = () => {
+const InputGroup: FC<CryptoTableProps> = ({ coins }) => {
   const classes = useStyles();
 
   const [currency, setCurrency] = React.useState<string>("");
@@ -46,7 +52,18 @@ const InputGroup: FC = () => {
           onChange={handleChange}
           fullWidth
         >
-          <MenuItem value={10}>BitCoin</MenuItem>
+          {coins.map((row) => (
+            <MenuItem key={row.id} value={row.id}>
+              <div className={classes.coinWrapper}>
+                <img
+                  src={"https://www.cryptocompare.com" + row.imageUrl}
+                  alt=""
+                  style={{ height: "25px", marginRight: "5px" }}
+                />
+                {row.fullName}
+              </div>
+            </MenuItem>
+          ))}
         </Select>
       </FormControl>
     </div>
