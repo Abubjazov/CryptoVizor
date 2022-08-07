@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: theme.typography.caption.fontSize,
     },
     socialShare: {
-      color: 'red',
+      color: "red",
       [theme.breakpoints.down("sm")]: {
         marginTop: theme.spacing(4),
       },
