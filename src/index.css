@@ -1,17 +1,38 @@
 @import "fonts.css";
 
-html,
-body,
-#root {
-  margin: 0;
-  background-color: #ffffff;
+html {
   height: 100%;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  width: 100%;
-  padding: 0 !important;
-  scroll-behavior: smooth;
+  background: linear-gradient(
+      180deg,
+      rgba(254, 254, 254, 1) 0%,
+      rgba(238, 238, 238, 1) 100%
+    )
+    no-repeat;
 }
 
 * {
   -webkit-locale: auto;
+}
+* {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li,
+dl {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
 }

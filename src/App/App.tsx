@@ -9,11 +9,11 @@ const App: FC = () => {
   return (
     <Container maxWidth="lg">
       <AppMenu />
-      <Grid container spacing={1} style={{ marginTop: "13px" }}>
-        <Grid item xs={6}>
+      <Grid container spacing={1} style={{ marginTop: "10px" }}>
+        <Grid item xs={4}>
           <RateExchanger />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={8}>
           <CryptoCurrency />
         </Grid>
       </Grid>

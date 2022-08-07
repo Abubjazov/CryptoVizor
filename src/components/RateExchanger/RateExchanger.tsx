@@ -1,31 +1,16 @@
 import React, { FC } from "react";
-import { makeStyles, Paper } from "@material-ui/core";
+import { Paper, Typography } from "@material-ui/core";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-  toolbar: {
-    background: "#FFFFFF",
-    color: "#999999",
-  },
-  q: {
-    color: "#ff8c00",
-  },
-}));
+import InputGroup from "../InputGroup";
+import Result from "../Result";
 
 const RateExchanger: FC = () => {
-  const classes = useStyles();
-
   return (
-    <Paper elevation={2} style={{ height: "300px" }}>
-      123
+    <Paper elevation={1} style={{ height: "300px", padding: "13px" }}>
+      <Typography variant="h5">Обмен криптовалют</Typography>
+      <InputGroup />
+      <InputGroup />
+      <Result />
     </Paper>
   );
 };

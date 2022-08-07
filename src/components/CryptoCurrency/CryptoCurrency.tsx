@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { makeStyles, Paper } from "@material-ui/core";
+import { makeStyles, Paper, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,8 +24,8 @@ const CryptoCurrency: FC = () => {
   const classes = useStyles();
 
   return (
-    <Paper elevation={2} style={{ height: "300px" }}>
-      123
+    <Paper elevation={1} style={{ height: "300px", padding: "13px" }}>
+      <Typography variant="h5">Курсы криптовалют</Typography>
     </Paper>
   );
 };

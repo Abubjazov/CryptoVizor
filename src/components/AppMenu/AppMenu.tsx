@@ -20,11 +20,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   toolbar: {
+    marginTop: "5px",
     background: "#FFFFFF",
-    color: "#999999",
-  },
-  q: {
-    color: "#ff8c00",
   },
 }));
 
@@ -32,20 +29,20 @@ const AppMenu: FC = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" className={classes.toolbar}>
+    <AppBar position="static" elevation={1} className={classes.toolbar}>
       <Toolbar>
         <IconButton
           edge="start"
           className={classes.menuButton}
-          color="inherit"
+          color="primary"
           aria-label="menu"
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" className={classes.title}>
-          Polaris <span className={classes.q}>Q</span>
+        <Typography color="primary" variant="h6" className={classes.title}>
+          Polaris
         </Typography>
-        <Button color="inherit">Login</Button>
+        <Button color="primary">Login</Button>
       </Toolbar>
     </AppBar>
   );
