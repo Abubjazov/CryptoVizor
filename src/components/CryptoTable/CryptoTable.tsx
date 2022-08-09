@@ -8,7 +8,6 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Fade,
 } from "@material-ui/core";
 
 import { TCoin } from "../../Interfaces/TCoin";

@@ -7,6 +7,7 @@ import {
   Select,
   TextField,
 } from "@material-ui/core";
+
 import { CryptoTableProps } from "../CryptoTable/CryptoTable";
 
 const useStyles = makeStyles((theme) => ({
