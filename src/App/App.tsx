@@ -5,19 +5,15 @@ import { observer } from "mobx-react-lite";
 import AppMenu from "../components/AppMenu";
 import RateExchanger from "../components/RateExchanger";
 import CryptoCurrency from "../components/CryptoCurrency";
-import CoinsStore from "../store/CoinsStore";
+import { UseCoinsStore } from "./hooks";
 
 const App: FC = observer(() => {
-  const { coins, status, loadCoinsData } = CoinsStore;
+  const { coins, loadCoinsData } = UseCoinsStore();
 
   useEffect(() => {
     loadCoinsData();
     // eslint-disable-next-line
   }, []);
-
-  useEffect(() => {
-    console.log(status);
-  }, [status]);
 
   return (
     <Container maxWidth="lg">
