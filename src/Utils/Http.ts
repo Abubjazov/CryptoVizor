@@ -2,7 +2,9 @@ import Axios from "axios";
 
 import { TCoin } from "../Interfaces/TCoin";
 
-export const getCoinsData = (): TCoin[] | null => {
+export const getCoinsData = (
+  setCoins: (coins: TCoin[]) => void
+): TCoin[] | null => {
   Axios.get(
     "https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD"
   )
@@ -26,6 +28,8 @@ export const getCoinsData = (): TCoin[] | null => {
 
         return obj;
       });
+
+      setCoins(coins);
 
       return coins;
     })

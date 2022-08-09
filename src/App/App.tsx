@@ -10,6 +10,14 @@ import { getCoinsData } from "../Utils/Http";
 const App: FC = () => {
   const [coins, setCoins] = useState<TCoin[]>([]);
 
+  const handleCoins = (coins: TCoin[]): void => {
+    setCoins(coins);
+  };
+
+  useEffect(() => {
+    getCoinsData(handleCoins);
+  }, []);
+
   return (
     <Container maxWidth="lg">
       <AppMenu />
