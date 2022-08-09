@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@material-ui/core";
 
-import { TCoin } from "../../Interfaces/TCoin";
+import { TCoin } from "../../interfaces/TCoin";
 
 const useStyles = makeStyles({
   tableContainer: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 });
 
 export interface CryptoTableProps {
-  coins: TCoin[];
+  coins: TCoin[] | null;
 }
 
 const CryptoTable: FC<CryptoTableProps> = ({ coins }) => {
@@ -46,24 +46,25 @@ const CryptoTable: FC<CryptoTableProps> = ({ coins }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {coins.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell component="th" scope="row">
-                <div className={classes.coinWrapper}>
-                  <img
-                    src={"https://www.cryptocompare.com" + row.imageUrl}
-                    alt=""
-                    style={{ height: "31px", marginRight: "5px" }}
-                  />
-                  {row.fullName}
-                </div>
-              </TableCell>
-              <TableCell align="right">{Math.round(row.price)}</TableCell>
-              <TableCell align="right">
-                {Math.round(row.volume24Hour)}
-              </TableCell>
-            </TableRow>
-          ))}
+          {coins &&
+            coins.map((row) => (
+              <TableRow key={row.id}>
+                <TableCell component="th" scope="row">
+                  <div className={classes.coinWrapper}>
+                    <img
+                      src={process.env.REACT_APP_ICON_BASE_URL + row.imageUrl}
+                      alt=""
+                      style={{ height: "31px", marginRight: "5px" }}
+                    />
+                    {row.fullName}
+                  </div>
+                </TableCell>
+                <TableCell align="right">{Math.round(row.price)}</TableCell>
+                <TableCell align="right">
+                  {Math.round(row.volume24Hour)}
+                </TableCell>
+              </TableRow>
+            ))}
         </TableBody>
       </Table>
     </TableContainer>

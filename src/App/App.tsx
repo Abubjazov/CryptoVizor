@@ -1,22 +1,23 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
+import { observer } from "mobx-react-lite";
 
 import AppMenu from "../components/AppMenu";
 import RateExchanger from "../components/RateExchanger";
 import CryptoCurrency from "../components/CryptoCurrency";
-import { TCoin } from "../Interfaces/TCoin";
-import { getCoinsData } from "../Utils/Http";
+import CoinsStore from "../store/CoinsStore";
 
-const App: FC = () => {
-  const [coins, setCoins] = useState<TCoin[]>([]);
-
-  const handleCoins = (coins: TCoin[]): void => {
-    setCoins(coins);
-  };
+const App: FC = observer(() => {
+  const { coins, status, loadCoinsData } = CoinsStore;
 
   useEffect(() => {
-    getCoinsData(handleCoins);
+    loadCoinsData();
+    // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    console.log(status);
+  }, [status]);
 
   return (
     <Container maxWidth="lg">
@@ -31,6 +32,6 @@ const App: FC = () => {
       </Grid>
     </Container>
   );
-};
+});
 
 export default App;

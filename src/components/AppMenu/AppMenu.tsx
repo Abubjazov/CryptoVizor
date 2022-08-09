@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import {
   AppBar,
   Button,
+  Fade,
   IconButton,
   makeStyles,
   Toolbar,
@@ -29,22 +30,24 @@ const AppMenu: FC = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" elevation={1} className={classes.toolbar}>
-      <Toolbar>
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="primary"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography color="primary" variant="h6" className={classes.title}>
-          Polaris
-        </Typography>
-        <Button color="primary">Login</Button>
-      </Toolbar>
-    </AppBar>
+    <Fade in timeout={1000}>
+      <AppBar position="static" elevation={1} className={classes.toolbar}>
+        <Toolbar>
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="primary"
+            aria-label="menu"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography color="primary" variant="h6" className={classes.title}>
+            Polaris
+          </Typography>
+          <Button color="primary">Login</Button>
+        </Toolbar>
+      </AppBar>
+    </Fade>
   );
 };
 

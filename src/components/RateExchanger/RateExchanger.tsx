@@ -8,7 +8,7 @@ const RateExchanger: FC<CryptoTableProps> = ({ coins }) => {
   return (
     <Fade in timeout={1000}>
       <Paper elevation={1} style={{ height: "300px", padding: "13px" }}>
-        <Typography variant="h5">Обмен криптовалют</Typography>
+        <Typography variant="h5">Калькулятор</Typography>
         <InputGroup coins={coins} />
         <InputGroup coins={coins} />
       </Paper>

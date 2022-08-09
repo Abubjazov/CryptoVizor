@@ -53,18 +53,19 @@ const InputGroup: FC<CryptoTableProps> = ({ coins }) => {
           onChange={handleChange}
           fullWidth
         >
-          {coins.map((row) => (
-            <MenuItem key={row.id} value={row.id}>
-              <div className={classes.coinWrapper}>
-                <img
-                  src={"https://www.cryptocompare.com" + row.imageUrl}
-                  alt=""
-                  style={{ height: "25px", marginRight: "5px" }}
-                />
-                {row.fullName}
-              </div>
-            </MenuItem>
-          ))}
+          {coins &&
+            coins.map((row) => (
+              <MenuItem key={row.id} value={row.id}>
+                <div className={classes.coinWrapper}>
+                  <img
+                    src={process.env.REACT_APP_ICON_BASE_URL + row.imageUrl}
+                    alt=""
+                    style={{ height: "25px", marginRight: "5px" }}
+                  />
+                  {row.fullName}
+                </div>
+              </MenuItem>
+            ))}
         </Select>
       </FormControl>
     </div>
