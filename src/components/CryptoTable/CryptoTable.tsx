@@ -33,43 +33,41 @@ const CryptoTable: FC<CryptoTableProps> = ({ coins }) => {
   const classes = useStyles();
 
   return (
-    <Fade in timeout={1000}>
-      <TableContainer className={classes.tableContainer} component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <TableCell className={classes.tableHead}>Криптовалюта</TableCell>
-              <TableCell className={classes.tableHead} align="right">
-                Цена $
+    <TableContainer className={classes.tableContainer} component={Paper}>
+      <Table className={classes.table} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell className={classes.tableHead}>Криптовалюта</TableCell>
+            <TableCell className={classes.tableHead} align="right">
+              Цена $
+            </TableCell>
+            <TableCell className={classes.tableHead} align="right">
+              Куплено за 24 часа
+            </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {coins.map((row) => (
+            <TableRow key={row.id}>
+              <TableCell component="th" scope="row">
+                <div className={classes.coinWrapper}>
+                  <img
+                    src={"https://www.cryptocompare.com" + row.imageUrl}
+                    alt=""
+                    style={{ height: "31px", marginRight: "5px" }}
+                  />
+                  {row.fullName}
+                </div>
               </TableCell>
-              <TableCell className={classes.tableHead} align="right">
-                Куплено за 24 часа
+              <TableCell align="right">{Math.round(row.price)}</TableCell>
+              <TableCell align="right">
+                {Math.round(row.volume24Hour)}
               </TableCell>
             </TableRow>
-          </TableHead>
-          <TableBody>
-            {coins.map((row) => (
-              <TableRow key={row.id}>
-                <TableCell component="th" scope="row">
-                  <div className={classes.coinWrapper}>
-                    <img
-                      src={"https://www.cryptocompare.com" + row.imageUrl}
-                      alt=""
-                      style={{ height: "31px", marginRight: "5px" }}
-                    />
-                    {row.fullName}
-                  </div>
-                </TableCell>
-                <TableCell align="right">{Math.round(row.price)}</TableCell>
-                <TableCell align="right">
-                  {Math.round(row.volume24Hour)}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Fade>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 
