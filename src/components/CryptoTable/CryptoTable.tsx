@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-export interface CryptoTableProps {
+interface CryptoTableProps {
   coins: TCoin[] | null;
 }
 

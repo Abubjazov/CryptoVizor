@@ -8,7 +8,7 @@ import {
   TextField,
 } from "@material-ui/core";
 
-import { CryptoTableProps } from "../CryptoTable/CryptoTable";
+import { TCoin } from "../../interfaces/TCoin";
 
 const useStyles = makeStyles((theme) => ({
   inputGroup: {
@@ -31,7 +31,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const InputGroup: FC<CryptoTableProps> = ({ coins }) => {
+interface InputGroupProps {
+  coins: TCoin[] | null;
+}
+
+const InputGroup: FC<InputGroupProps> = ({ coins }) => {
   const classes = useStyles();
 
   const [currency, setCurrency] = React.useState<string>("");
