@@ -5,25 +5,25 @@ import { TCoin } from "../interfaces/TCoin";
 
 class CoinsStore {
   private _coins: TCoin[] | null = null;
-  private _status: string = "waiting";
+  private _status: "waiting" | "loading" | "error" = "waiting";
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  get coins() {
+  get coins(): TCoin[] | null {
     return this._coins;
   }
 
-  get status() {
+  get status(): "waiting" | "loading" | "error" {
     return this._status;
   }
 
-  resetError = () => {
+  resetError = (): void => {
     this._status = "waiting";
   };
 
-  loadCoinsData = () => {
+  loadCoinsData = (): void => {
     this._status = "loading";
 
     Axios.get(process.env.REACT_APP_BASE_URL + "")

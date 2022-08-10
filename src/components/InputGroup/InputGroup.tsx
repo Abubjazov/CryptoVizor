@@ -33,28 +33,52 @@ const useStyles = makeStyles((theme) => ({
 
 interface InputGroupProps {
   coins: TCoin[] | null;
+  selectValue: string;
+  setSelectValue: (value: string) => void;
+  inputValue: number;
+  setIinputValue: (value: number) => void;
 }
 
-const InputGroup: FC<InputGroupProps> = ({ coins }) => {
+const InputGroup: FC<InputGroupProps> = ({
+  coins,
+  selectValue,
+  setSelectValue,
+  inputValue,
+  setIinputValue,
+}) => {
   const classes = useStyles();
 
-  const [currency, setCurrency] = React.useState<string>("");
+  const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setSelectValue(event.target.value as string);
+  };
 
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setCurrency(event.target.value as string);
+  const handleInputChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    const inputValue = parseInt(event.target.value as string);
+
+    if (isNaN(inputValue)) {
+      setIinputValue(0);
+    } else {
+      setIinputValue(inputValue);
+    }
   };
 
   return (
     <div className={classes.inputGroup}>
-      <TextField id="standard-basic" label="Сумма" className={classes.input} />
+      <TextField
+        id="cryptoInput"
+        label="Сумма"
+        className={classes.input}
+        value={inputValue}
+        onChange={handleInputChange}
+      />
 
       <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Валюта</InputLabel>
+        <InputLabel id="select-label">Валюта</InputLabel>
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={currency}
-          onChange={handleChange}
+          labelId="select-label"
+          id="crYptoSelect"
+          value={selectValue}
+          onChange={handleSelectChange}
           fullWidth
         >
           {coins &&

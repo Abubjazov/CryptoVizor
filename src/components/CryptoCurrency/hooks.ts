@@ -1,6 +1,6 @@
 import { useObserver } from "mobx-react-lite";
 
-import useStores from "../store/useStores";
+import useStores from "../../store/useStores";
 
 export const useCoinsStore = () => {
   const { coinsStore } = useStores();

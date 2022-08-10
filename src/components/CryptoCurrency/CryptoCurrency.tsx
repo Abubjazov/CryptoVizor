@@ -2,7 +2,7 @@ import React, { FC, useEffect } from "react";
 import { Fade, Paper, Typography } from "@material-ui/core";
 
 import CryptoTable from "../CryptoTable";
-import { useCoinsStore } from "../../App/hooks";
+import { useCoinsStore } from "./hooks";
 
 const CryptoCurrency: FC = () => {
   const { coins, loadCoinsData } = useCoinsStore();

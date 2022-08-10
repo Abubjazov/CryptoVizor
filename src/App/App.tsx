@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import { Container, Grid } from "@material-ui/core";
 
 import AppMenu from "../components/AppMenu";
