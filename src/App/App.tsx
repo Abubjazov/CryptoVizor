@@ -1,14 +1,13 @@
 import React, { FC, useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
-import { observer } from "mobx-react-lite";
 
 import AppMenu from "../components/AppMenu";
 import RateExchanger from "../components/RateExchanger";
 import CryptoCurrency from "../components/CryptoCurrency";
-import { UseCoinsStore } from "./hooks";
+import { useCoinsStore } from "./hooks";
 
-const App: FC = observer(() => {
-  const { coins, loadCoinsData } = UseCoinsStore();
+const App: FC = () => {
+  const { coins, loadCoinsData } = useCoinsStore();
 
   useEffect(() => {
     loadCoinsData();
@@ -28,6 +27,6 @@ const App: FC = observer(() => {
       </Grid>
     </Container>
   );
-});
+};
 
 export default App;

@@ -1,7 +1,14 @@
-import CoinsStore from "../store/CoinsStore";
+import { useObserver } from "mobx-react-lite";
 
-export const UseCoinsStore = () => {
-  const { coins, status, loadCoinsData } = CoinsStore;
+import useStores from "../store/useStores";
 
-  return { coins, status, loadCoinsData };
+export const useCoinsStore = () => {
+  const { coinsStore } = useStores();
+
+  return useObserver(() => ({
+    coins: coinsStore.coins,
+    status: coinsStore.status,
+    resetError: coinsStore.resetError,
+    loadCoinsData: coinsStore.loadCoinsData,
+  }));
 };

@@ -57,4 +57,4 @@ class CoinsStore {
   };
 }
 
-export default new CoinsStore();
+export default CoinsStore;
