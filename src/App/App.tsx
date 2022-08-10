@@ -10,10 +10,10 @@ const App: FC = () => {
     <Container maxWidth="lg">
       <AppMenu />
       <Grid container spacing={1} style={{ marginTop: "10px" }}>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <RateExchanger />
         </Grid>
-        <Grid item xs={8}>
+        <Grid item xs={12} md={8}>
           <CryptoCurrency />
         </Grid>
       </Grid>

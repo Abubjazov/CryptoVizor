@@ -1,7 +1,7 @@
 @import "fonts.css";
 
-html {
-  height: 100%;
+body {
+  margin: 4px;
   background: linear-gradient(
       180deg,
       rgba(254, 254, 254, 1) 0%,
@@ -11,13 +11,12 @@ html {
 }
 
 * {
-  -webkit-locale: auto;
-}
-* {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  -webkit-locale: auto;
 }
 
 ul,
