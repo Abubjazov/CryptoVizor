@@ -63,7 +63,7 @@ const InputGroup: FC<InputGroupProps> = ({
     <div className={classes.inputGroup}>
       <TextField
         id="cryptoInput"
-        type="input"
+        type="number"
         label="Сумма"
         className={classes.input}
         value={inputValue}
