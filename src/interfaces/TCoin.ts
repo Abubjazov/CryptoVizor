@@ -7,3 +7,9 @@ export type TCoin = {
   volume24Hour: number;
   Changepcthour: number;
 };
+
+export enum EStatus {
+  WAITING = "waiting",
+  LOADING = "loading",
+  ERROR = "error",
+}

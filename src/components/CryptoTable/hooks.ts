@@ -20,11 +20,3 @@ export const useRateExchangerStore = () => {
     setSecondValue: rateExchangerStore.setSecondValue,
   }));
 };
-
-// export const useCoinsStore = () => {
-//   const { coinsStore } = useStores();
-
-//   return useObserver(() => ({
-//     coins: coinsStore.coins,
-//   }));
-// };

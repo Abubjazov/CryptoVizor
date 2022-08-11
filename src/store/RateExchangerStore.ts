@@ -1,8 +1,7 @@
 import { makeAutoObservable } from "mobx";
+import { EStatus } from "../interfaces/TCoin";
 
 class RateExchangerStore {
-  private _status: "waiting" | "completed" = "waiting";
-
   private _selectValue1: string = "";
   private _inputValue1: string = "";
 
@@ -12,14 +11,6 @@ class RateExchangerStore {
   constructor() {
     makeAutoObservable(this);
   }
-
-  get status(): "waiting" | "completed" {
-    return this._status;
-  }
-
-  setStatus = (value: "waiting" | "completed"): void => {
-    this._status = value;
-  };
 
   get firstCoin(): string {
     return this._selectValue1;

@@ -1,11 +1,11 @@
 import { makeAutoObservable } from "mobx";
 import Axios from "axios";
 
-import { TCoin } from "../interfaces/TCoin";
+import { EStatus, TCoin } from "../interfaces/TCoin";
 
 class CoinsStore {
   private _coins: TCoin[] | null = null;
-  private _status: "waiting" | "loading" | "error" = "waiting";
+  private _status: EStatus = EStatus.WAITING;
 
   constructor() {
     makeAutoObservable(this);
@@ -15,16 +15,16 @@ class CoinsStore {
     return this._coins;
   }
 
-  get status(): "waiting" | "loading" | "error" {
+  get status(): EStatus {
     return this._status;
   }
 
   resetError = (): void => {
-    this._status = "waiting";
+    this._status = EStatus.WAITING;
   };
 
   loadCoinsData = (): void => {
-    this._status = "loading";
+    this._status = EStatus.LOADING;
 
     Axios.get(process.env.REACT_APP_BASE_URL + "")
       .then((response) => {
@@ -50,11 +50,11 @@ class CoinsStore {
           return obj;
         });
 
-        this._status = "waiting";
+        this._status = EStatus.WAITING;
         this._coins = coins;
       })
       .catch(() => {
-        this._status = "error";
+        this._status = EStatus.ERROR;
       });
   };
 }
