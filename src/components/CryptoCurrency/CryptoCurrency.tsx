@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { Fade, Paper, Typography } from "@material-ui/core";
 
 import CryptoTable from "../CryptoTable";
@@ -7,10 +7,21 @@ import { useCoinsStore } from "./hooks";
 const CryptoCurrency: FC = () => {
   const { coins, loadCoinsData } = useCoinsStore();
 
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTime(time + 1);
+    }, 3000000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [time]);
+
   useEffect(() => {
     loadCoinsData();
     // eslint-disable-next-line
-  }, []);
+  }, [time]);
 
   return (
     <Fade in timeout={1000}>

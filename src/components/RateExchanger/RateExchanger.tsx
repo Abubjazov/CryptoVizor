@@ -3,13 +3,11 @@ import { Fade, Paper, Typography } from "@material-ui/core";
 
 import InputGroup from "../InputGroup";
 import { useCoinsStore, useRateExchangerStore } from "./hooks";
+import { TCoin } from "../../interfaces/TCoin";
 
 const RateExchanger: FC = () => {
   const { coins } = useCoinsStore();
   const {
-    // status,
-    // setStatus,
-
     firstCoin,
     firstValue,
     setFirstCoin,
@@ -21,14 +19,36 @@ const RateExchanger: FC = () => {
     setSecondValue,
   } = useRateExchangerStore();
 
-  useEffect(() => {
-    console.log(`
-FC: ${firstCoin}
-FV: ${firstValue}
+  const exchange = (
+    coins: TCoin[] | null,
+    fValue: string,
+    fId: string,
+    sId: string,
+    setSecondValue: (value: string) => void
+  ): void => {
+    if (coins && fValue && fId && sId)
+      if (coins !== null) {
+        const fPrice = Math.round(
+          coins.filter((item) => item.id === fId)[0].price
+        );
+        const sPrice = Math.round(
+          coins.filter((item) => item.id === sId)[0].price
+        );
 
-SC: ${secondCoin}
-SV: ${secondValue}
-`);
+        const multiplier = Math.round(fPrice / sPrice);
+
+        console.log(Math.round(+fValue * multiplier).toString());
+
+        setSecondValue(
+          Math.round(+fValue * multiplier).toString() === "0"
+            ? ""
+            : Math.round(+fValue * multiplier).toString()
+        );
+      }
+  };
+
+  useEffect(() => {
+    exchange(coins, firstValue, firstCoin, secondCoin, setSecondValue);
   }, [firstCoin, firstValue, secondCoin, secondValue]);
 
   return (

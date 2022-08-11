@@ -36,6 +36,7 @@ class CoinsStore {
             imageUrl: "",
             price: 0,
             volume24Hour: 0,
+            Changepcthour: 0,
           };
 
           obj.id = coin.CoinInfo.Id;
@@ -44,6 +45,7 @@ class CoinsStore {
           obj.imageUrl = coin.CoinInfo.ImageUrl;
           obj.price = coin.RAW.USD.PRICE;
           obj.volume24Hour = coin.RAW.USD.VOLUME24HOUR;
+          obj.Changepcthour = coin.RAW.USD.CHANGEPCTHOUR;
 
           return obj;
         });

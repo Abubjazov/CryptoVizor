@@ -27,10 +27,10 @@ class RateExchangerStore {
   get firstValue(): string {
     return this._inputValue1;
   }
-  setFirstCoin = (value: string) => {
+  setFirstCoin = (value: string): void => {
     this._selectValue1 = value;
   };
-  setFirstValue = (value: string) => {
+  setFirstValue = (value: string): void => {
     this._inputValue1 = value;
   };
 

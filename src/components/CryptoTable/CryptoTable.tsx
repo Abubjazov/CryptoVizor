@@ -11,18 +11,27 @@ import {
 } from "@material-ui/core";
 
 import { TCoin } from "../../interfaces/TCoin";
+import { useRateExchangerStore } from "./hooks";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   tableContainer: {
     marginTop: "13px",
   },
-  table: {},
-  tableHead: { color: "#3F51B5" },
+  tableHead: {
+    color: "#3F51B5",
+    backgroundColor: "#e9e9e9",
+  },
   coinWrapper: {
     display: "flex",
     alignItems: "center",
   },
-});
+  colorСellGreen: {
+    backgroundColor: "#d8ffc4",
+  },
+  colorСellRed: {
+    backgroundColor: "#ffdada",
+  },
+}));
 
 interface CryptoTableProps {
   coins: TCoin[] | null;
@@ -31,16 +40,49 @@ interface CryptoTableProps {
 const CryptoTable: FC<CryptoTableProps> = ({ coins }) => {
   const classes = useStyles();
 
+  const { firstCoin, setFirstCoin, secondCoin, setSecondCoin } =
+    useRateExchangerStore();
+
+  const setCellColor = (value: number) => {
+    if (value > 0) {
+      return classes.colorСellGreen;
+    }
+    if (value < 0) {
+      return classes.colorСellRed;
+    }
+  };
+
+  const tableRowClickHandler = (event: React.MouseEvent<HTMLElement>) => {
+    const elementId = event.currentTarget.dataset.id;
+
+    if (!firstCoin) elementId && setFirstCoin(elementId);
+    if (firstCoin && !secondCoin) elementId && setSecondCoin(elementId);
+  };
+
   return (
     <TableContainer className={classes.tableContainer} component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
+      <Table aria-label="crypto table">
         <TableHead>
           <TableRow>
-            <TableCell className={classes.tableHead}>Криптовалюта</TableCell>
-            <TableCell className={classes.tableHead} align="right">
+            <TableCell
+              className={classes.tableHead}
+              align="center"
+              size="small"
+            >
+              Криптовалюта
+            </TableCell>
+            <TableCell
+              className={classes.tableHead}
+              align="center"
+              size="small"
+            >
               Цена $
             </TableCell>
-            <TableCell className={classes.tableHead} align="right">
+            <TableCell
+              className={classes.tableHead}
+              align="center"
+              size="small"
+            >
               Куплено за 24 часа
             </TableCell>
           </TableRow>
@@ -48,8 +90,20 @@ const CryptoTable: FC<CryptoTableProps> = ({ coins }) => {
         <TableBody>
           {coins &&
             coins.map((row) => (
-              <TableRow key={row.id}>
-                <TableCell component="th" scope="row">
+              <TableRow
+                key={row.id}
+                data-id={row.id}
+                hover
+                role="checkbox"
+                tabIndex={-1}
+                onClick={tableRowClickHandler}
+              >
+                <TableCell
+                  component="th"
+                  scope="row"
+                  align="center"
+                  size="small"
+                >
                   <div className={classes.coinWrapper}>
                     <img
                       src={process.env.REACT_APP_ICON_BASE_URL + row.imageUrl}
@@ -59,8 +113,14 @@ const CryptoTable: FC<CryptoTableProps> = ({ coins }) => {
                     {row.fullName}
                   </div>
                 </TableCell>
-                <TableCell align="right">{Math.round(row.price)}</TableCell>
-                <TableCell align="right">
+                <TableCell
+                  className={setCellColor(row.Changepcthour)}
+                  align="center"
+                  size="small"
+                >
+                  {Math.round(row.price)}
+                </TableCell>
+                <TableCell align="center" size="small">
                   {Math.round(row.volume24Hour)}
                 </TableCell>
               </TableRow>

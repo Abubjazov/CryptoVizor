@@ -5,4 +5,5 @@ export type TCoin = {
   imageUrl: string;
   price: number;
   volume24Hour: number;
+  Changepcthour: number;
 };
