@@ -39,14 +39,14 @@ SV: ${secondValue}
           coins={coins}
           selectValue={firstCoin}
           setSelectValue={setFirstCoin}
-          inputValue={firstValue ?? 0}
+          inputValue={firstValue}
           setIinputValue={setFirstValue}
         />
         <InputGroup
           coins={coins}
           selectValue={secondCoin}
           setSelectValue={setSecondCoin}
-          inputValue={secondValue ?? 0}
+          inputValue={secondValue}
           setIinputValue={setSecondValue}
         />
       </Paper>

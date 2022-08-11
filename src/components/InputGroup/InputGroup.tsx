@@ -35,8 +35,8 @@ interface InputGroupProps {
   coins: TCoin[] | null;
   selectValue: string;
   setSelectValue: (value: string) => void;
-  inputValue: number;
-  setIinputValue: (value: number) => void;
+  inputValue: string;
+  setIinputValue: (value: string) => void;
 }
 
 const InputGroup: FC<InputGroupProps> = ({
@@ -56,9 +56,9 @@ const InputGroup: FC<InputGroupProps> = ({
     const inputValue = parseInt(event.target.value as string);
 
     if (isNaN(inputValue)) {
-      setIinputValue(0);
+      setIinputValue("");
     } else {
-      setIinputValue(inputValue);
+      setIinputValue(inputValue.toString());
     }
   };
 

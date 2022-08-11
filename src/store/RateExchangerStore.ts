@@ -4,10 +4,10 @@ class RateExchangerStore {
   private _status: "waiting" | "completed" = "waiting";
 
   private _selectValue1: string = "";
-  private _inputValue1: number | undefined;
+  private _inputValue1: string = "";
 
   private _selectValue2: string = "";
-  private _inputValue2: number | undefined;
+  private _inputValue2: string = "";
 
   constructor() {
     makeAutoObservable(this);
@@ -24,26 +24,26 @@ class RateExchangerStore {
   get firstCoin(): string {
     return this._selectValue1;
   }
-  get firstValue(): number | undefined {
+  get firstValue(): string {
     return this._inputValue1;
   }
   setFirstCoin = (value: string) => {
     this._selectValue1 = value;
   };
-  setFirstValue = (value: number) => {
+  setFirstValue = (value: string) => {
     this._inputValue1 = value;
   };
 
   get secondCoin(): string {
     return this._selectValue2;
   }
-  get secondValue(): number | undefined {
+  get secondValue(): string {
     return this._inputValue2;
   }
   setSecondCoin = (value: string): void => {
     this._selectValue2 = value;
   };
-  setSecondValue = (value: number): void => {
+  setSecondValue = (value: string): void => {
     this._inputValue2 = value;
   };
 }
