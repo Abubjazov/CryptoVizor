@@ -12,8 +12,8 @@ import { TCoin } from "../../interfaces/TCoin";
 
 const useStyles = makeStyles((theme) => ({
   inputGroup: {
-    height: "50px",
-    marginTop: "20px",
+    height: "40px",
+    // marginTop: "20px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "flex-end",
