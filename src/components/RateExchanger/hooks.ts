@@ -6,9 +6,6 @@ export const useRateExchangerStore = () => {
   const { rateExchangerStore } = useStores();
 
   return useObserver(() => ({
-    status: rateExchangerStore.status,
-    setStatus: rateExchangerStore.setStatus,
-
     firstCoin: rateExchangerStore.firstCoin,
     firstValue: rateExchangerStore.firstValue,
     setFirstCoin: rateExchangerStore.setFirstCoin,
