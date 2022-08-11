@@ -1,5 +1,4 @@
 import { makeAutoObservable } from "mobx";
-import { EStatus } from "../interfaces/TCoin";
 
 class RateExchangerStore {
   private _selectValue1: string = "";
