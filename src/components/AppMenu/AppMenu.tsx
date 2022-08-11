@@ -42,7 +42,7 @@ const AppMenu: FC = () => {
             <MenuIcon />
           </IconButton>
           <Typography color="primary" variant="h6" className={classes.title}>
-            Polaris
+            CryptoVizor
           </Typography>
           <Button color="primary">Login</Button>
         </Toolbar>
