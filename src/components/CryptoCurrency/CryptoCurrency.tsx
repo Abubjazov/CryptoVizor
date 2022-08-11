@@ -12,7 +12,7 @@ const CryptoCurrency: FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setTime(time + 1);
-    }, 3000000);
+    }, 60000);
     return () => {
       clearTimeout(timer);
     };

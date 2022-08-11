@@ -35,8 +35,9 @@ interface InputGroupProps {
   coins: TCoin[] | null;
   selectValue: string;
   setSelectValue: (value: string) => void;
-  inputValue: string;
-  setIinputValue: (value: string) => void;
+  inputValue: number;
+  setInputValue: (value: number) => void;
+  readOnly?: boolean;
 }
 
 const InputGroup: FC<InputGroupProps> = ({
@@ -44,7 +45,8 @@ const InputGroup: FC<InputGroupProps> = ({
   selectValue,
   setSelectValue,
   inputValue,
-  setIinputValue,
+  setInputValue,
+  readOnly = false,
 }) => {
   const classes = useStyles();
 
@@ -53,23 +55,24 @@ const InputGroup: FC<InputGroupProps> = ({
   };
 
   const handleInputChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    const inputValue = parseInt(event.target.value as string);
+    const inputValue = parseFloat(event.target.value as string);
 
-    if (isNaN(inputValue)) {
-      setIinputValue("");
-    } else {
-      setIinputValue(inputValue.toString());
-    }
+    setInputValue(inputValue);
   };
 
   return (
     <div className={classes.inputGroup}>
       <TextField
         id="cryptoInput"
+        type="input"
         label="Сумма"
         className={classes.input}
         value={inputValue}
         onChange={handleInputChange}
+        inputProps={{ type: "number", step: "any", min: 0 }}
+        InputProps={{
+          readOnly: readOnly,
+        }}
       />
 
       <FormControl className={classes.formControl}>

@@ -21,29 +21,20 @@ const RateExchanger: FC = () => {
 
   const exchange = (
     coins: TCoin[] | null,
-    fValue: string,
+    fValue: number,
     fId: string,
     sId: string,
-    setSecondValue: (value: string) => void
+    setSecondValue: (value: number) => void
   ): void => {
-    if (coins && fValue && fId && sId)
+    if (coins && fId && sId)
       if (coins !== null) {
-        const fPrice = Math.round(
-          coins.filter((item) => item.id === fId)[0].price
-        );
-        const sPrice = Math.round(
-          coins.filter((item) => item.id === sId)[0].price
-        );
+        const fPrice = coins.filter((item) => item.id === fId)[0].price;
+        const sPrice = coins.filter((item) => item.id === sId)[0].price;
+        const multiplier = fPrice / sPrice;
 
-        const multiplier = Math.round(fPrice / sPrice);
+        console.log(multiplier);
 
-        console.log(Math.round(+fValue * multiplier).toString());
-
-        setSecondValue(
-          Math.round(+fValue * multiplier).toString() === "0"
-            ? ""
-            : Math.round(+fValue * multiplier).toString()
-        );
+        setSecondValue(fValue * multiplier);
       }
   };
 
@@ -60,14 +51,15 @@ const RateExchanger: FC = () => {
           selectValue={firstCoin}
           setSelectValue={setFirstCoin}
           inputValue={firstValue}
-          setIinputValue={setFirstValue}
+          setInputValue={setFirstValue}
         />
         <InputGroup
           coins={coins}
           selectValue={secondCoin}
           setSelectValue={setSecondCoin}
           inputValue={secondValue}
-          setIinputValue={setSecondValue}
+          setInputValue={setSecondValue}
+          readOnly
         />
       </Paper>
     </Fade>
