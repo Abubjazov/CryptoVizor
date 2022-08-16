@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "13px",
   },
   tableHead: {
-    color: "#3F51B5",
+    color: theme.palette.primary.main,
     backgroundColor: "#e9e9e9",
   },
   coinWrapper: {
