@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/CryptoVizor/precache-manifest.c9f679217166c6c029f35153afe2e9da.js"
+  "/CryptoVizor/precache-manifest.4c5bf93908fe828c5697cd6151169c1e.js"
 );
 
 self.addEventListener('message', (event) => {
