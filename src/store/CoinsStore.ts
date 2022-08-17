@@ -4,8 +4,8 @@ import Axios from "axios";
 import { EStatus, TCoin } from "../interfaces/TCoin";
 
 class CoinsStore {
-  private _coins: TCoin[] | null = null;
-  private _status: EStatus = EStatus.WAITING;
+  _coins: TCoin[] | null = null;
+  _status: EStatus = EStatus.WAITING;
 
   constructor() {
     makeAutoObservable(this);
@@ -19,8 +19,12 @@ class CoinsStore {
     return this._status;
   }
 
-  resetError = (): void => {
+  setStatusWaiting = (): void => {
     this._status = EStatus.WAITING;
+  };
+
+  setCoins = (coins: TCoin[]): void => {
+    this._coins = coins;
   };
 
   loadCoinsData = (): void => {
@@ -50,8 +54,8 @@ class CoinsStore {
           return obj;
         });
 
-        this._status = EStatus.WAITING;
-        this._coins = coins;
+        this.setStatusWaiting();
+        this.setCoins(coins);
       })
       .catch(() => {
         this._status = EStatus.ERROR;

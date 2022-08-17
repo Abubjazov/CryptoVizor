@@ -68,6 +68,7 @@ const RateExchanger: FC = () => {
 
   useEffect(() => {
     exchange(coins, firstValue, firstCoin, secondCoin, setSecondValue);
+    // eslint-disable-next-line
   }, [firstCoin, firstValue, secondCoin, secondValue]);
 
   return (

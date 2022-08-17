@@ -8,7 +8,7 @@ export const useCoinsStore = () => {
   return useObserver(() => ({
     coins: coinsStore.coins,
     status: coinsStore.status,
-    resetError: coinsStore.resetError,
+    setStatusWaiting: coinsStore.setStatusWaiting,
     loadCoinsData: coinsStore.loadCoinsData,
   }));
 };

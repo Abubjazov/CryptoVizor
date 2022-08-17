@@ -20,6 +20,7 @@ const CryptoCurrency: FC = () => {
 
   useEffect(() => {
     loadCoinsData();
+    // eslint-disable-next-line
   }, [time]);
 
   return (
