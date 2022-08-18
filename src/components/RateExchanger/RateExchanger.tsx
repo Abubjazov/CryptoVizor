@@ -58,17 +58,14 @@ const RateExchanger: FC = () => {
       if (coins !== null) {
         const fPrice = coins.filter((item) => item.id === fId)[0].price;
         const sPrice = coins.filter((item) => item.id === sId)[0].price;
-        const multiplier = fPrice / sPrice;
+        const multiplier = parseFloat((fPrice / sPrice).toFixed(5));
 
-        console.log(multiplier);
-
-        setSecondValue(fValue * multiplier);
+        setSecondValue(parseFloat((fValue * multiplier).toFixed(5)));
       }
   };
 
   useEffect(() => {
     exchange(coins, firstValue, firstCoin, secondCoin, setSecondValue);
-    // eslint-disable-next-line
   }, [firstCoin, firstValue, secondCoin, secondValue]);
 
   return (
