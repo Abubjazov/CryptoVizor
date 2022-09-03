@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from "react";
-import { Fade, Paper, Typography } from "@material-ui/core";
+import { Fade, Paper, Typography } from "@mui/material";
 
 import CryptoTable from "../CryptoTable";
 import { useCoinsStore } from "./hooks";
@@ -20,6 +20,7 @@ const CryptoCurrency: FC = () => {
 
   useEffect(() => {
     loadCoinsData();
+    // eslint-disable-next-line
   }, [time]);
 
   return (

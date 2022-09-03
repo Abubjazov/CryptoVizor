@@ -1,14 +1,7 @@
 import React, { FC } from "react";
-import {
-  Paper,
-  makeStyles,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-} from "@material-ui/core";
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+
+import makeStyles from '@mui/styles/makeStyles';
 
 import { TCoin } from "../../interfaces/TCoin";
 import { useRateExchangerStore } from "./hooks";

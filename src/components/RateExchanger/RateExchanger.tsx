@@ -1,12 +1,7 @@
 import React, { FC, useEffect } from "react";
-import {
-  Fade,
-  IconButton,
-  makeStyles,
-  Paper,
-  Typography,
-} from "@material-ui/core";
-import ImportExportIcon from "@material-ui/icons/ImportExport";
+import { Fade, IconButton, Paper, Typography } from "@mui/material";
+import makeStyles from "@mui/styles/makeStyles";
+import ImportExportIcon from "@mui/icons-material/ImportExport";
 
 import InputGroup from "../InputGroup";
 import { useCoinsStore, useRateExchangerStore } from "./hooks";
@@ -66,6 +61,7 @@ const RateExchanger: FC = () => {
 
   useEffect(() => {
     exchange(coins, firstValue, firstCoin, secondCoin, setSecondValue);
+    // eslint-disable-next-line
   }, [firstCoin, firstValue, secondCoin, secondValue]);
 
   return (
@@ -85,6 +81,7 @@ const RateExchanger: FC = () => {
             color="primary"
             aria-label="change"
             onClick={changeButtonClickHandler}
+            size="large"
           >
             <ImportExportIcon />
           </IconButton>

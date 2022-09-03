@@ -1,14 +1,7 @@
 import React, { FC } from "react";
-import {
-  AppBar,
-  Button,
-  Fade,
-  IconButton,
-  makeStyles,
-  Toolbar,
-  Typography,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
+import { AppBar, Button, Fade, IconButton, Toolbar, Typography } from "@mui/material";
+import makeStyles from '@mui/styles/makeStyles';
+import MenuIcon from "@mui/icons-material/Menu";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,7 +31,7 @@ const AppMenu: FC = () => {
             className={classes.menuButton}
             color="primary"
             aria-label="menu"
-          >
+            size="large">
             <MenuIcon />
           </IconButton>
           <Typography color="primary" variant="h6" className={classes.title}>

@@ -2,11 +2,13 @@ import React, { FC } from "react";
 import {
   FormControl,
   InputLabel,
-  makeStyles,
   MenuItem,
   Select,
+  SelectChangeEvent,
   TextField,
-} from "@material-ui/core";
+} from "@mui/material";
+
+import makeStyles from "@mui/styles/makeStyles";
 
 import { TCoin } from "../../interfaces/TCoin";
 
@@ -49,7 +51,10 @@ const InputGroup: FC<InputGroupProps> = ({
 }) => {
   const classes = useStyles();
 
-  const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleSelectChange = (
+    event: SelectChangeEvent<string>,
+    child: React.ReactNode
+  ) => {
     setSelectValue(event.target.value as string);
   };
 
@@ -62,6 +67,7 @@ const InputGroup: FC<InputGroupProps> = ({
   return (
     <div className={classes.inputGroup}>
       <TextField
+        variant="standard"
         id="cryptoInput"
         type="number"
         label="Сумма"
@@ -71,18 +77,17 @@ const InputGroup: FC<InputGroupProps> = ({
         inputProps={{ type: "number", step: "any", min: 0 }}
         InputProps={{
           readOnly: readOnly,
-        }}
-      />
+        }} />
 
-      <FormControl className={classes.formControl}>
+      <FormControl variant="standard" className={classes.formControl}>
         <InputLabel id="select-label">Валюта</InputLabel>
         <Select
+          variant="standard"
           labelId="select-label"
           id="crYptoSelect"
           value={selectValue}
           onChange={handleSelectChange}
-          fullWidth
-        >
+          fullWidth>
           {coins &&
             coins.map((row) => (
               <MenuItem key={row.id} value={row.id}>
