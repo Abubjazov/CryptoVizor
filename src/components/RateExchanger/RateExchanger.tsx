@@ -1,27 +1,33 @@
 import React, { FC, useEffect } from "react";
+import { styled } from "@mui/material/styles";
 import { Fade, IconButton, Paper, Typography } from "@mui/material";
-import makeStyles from "@mui/styles/makeStyles";
 import ImportExportIcon from "@mui/icons-material/ImportExport";
 
 import InputGroup from "../InputGroup";
 import { useCoinsStore, useRateExchangerStore } from "./hooks";
 import { TCoin } from "../../interfaces/TCoin";
 
-const useStyles = makeStyles((theme) => ({
-  rateContainer: {
+const PREFIX = "RateExchanger";
+
+const classes = {
+  rateContainer: `${PREFIX}-rateContainer`,
+  iconButton: `${PREFIX}-iconButton`,
+};
+
+const StyledFade = styled(Fade)(({ theme }) => ({
+  [`& .${classes.rateContainer}`]: {
     display: "grid",
     gridAutoColumns: "1fr",
     gridAutoRows: "80px 60px 30px",
     alignItems: "end",
   },
-  iconButton: {
+
+  [`& .${classes.iconButton}`]: {
     justifySelf: "center",
   },
 }));
 
 const RateExchanger: FC = () => {
-  const classes = useStyles();
-
   const { coins } = useCoinsStore();
   const {
     firstCoin,
@@ -65,7 +71,7 @@ const RateExchanger: FC = () => {
   }, [firstCoin, firstValue, secondCoin, secondValue]);
 
   return (
-    <Fade in timeout={1000}>
+    <StyledFade in timeout={1000}>
       <Paper elevation={1} style={{ height: "300px", padding: "13px" }}>
         <Typography variant="h5">Калькулятор</Typography>
         <div className={classes.rateContainer}>
@@ -95,7 +101,7 @@ const RateExchanger: FC = () => {
           />
         </div>
       </Paper>
-    </Fade>
+    </StyledFade>
   );
 };
 

@@ -4,9 +4,7 @@ import {
   createTheme,
   Grid,
   ThemeProvider,
-  Theme,
   StyledEngineProvider,
-  adaptV4Theme,
 } from "@mui/material";
 
 import AppMenu from "../components/AppMenu";
@@ -14,24 +12,17 @@ import RateExchanger from "../components/RateExchanger";
 import CryptoCurrency from "../components/CryptoCurrency";
 import { grey, purple } from "@mui/material/colors";
 
-declare module "@mui/styles/defaultTheme" {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
-
 const App: FC = () => {
-  const theme = createTheme(
-    adaptV4Theme({
-      palette: {
-        primary: {
-          main: purple[500],
-        },
-        secondary: {
-          main: grey[100],
-        },
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: purple[500],
       },
-    })
-  );
+      secondary: {
+        main: grey[100],
+      },
+    },
+  });
 
   return (
     <StyledEngineProvider injectFirst>

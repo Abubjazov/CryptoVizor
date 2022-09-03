@@ -1,37 +1,54 @@
 import React, { FC } from "react";
-import { AppBar, Button, Fade, IconButton, Toolbar, Typography } from "@mui/material";
-import makeStyles from '@mui/styles/makeStyles';
+import { styled } from "@mui/material/styles";
+import {
+  AppBar,
+  Button,
+  Fade,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
+const PREFIX = "AppMenu";
+
+const classes = {
+  root: `${PREFIX}-root`,
+  menuButton: `${PREFIX}-menuButton`,
+  title: `${PREFIX}-title`,
+  toolbar: `${PREFIX}-toolbar`,
+};
+
+const StyledFade = styled(Fade)(({ theme }) => ({
+  [`& .${classes.root}`]: {
     flexGrow: 1,
   },
-  menuButton: {
+
+  [`& .${classes.menuButton}`]: {
     marginRight: theme.spacing(2),
   },
-  title: {
+
+  [`& .${classes.title}`]: {
     flexGrow: 1,
-  },
-  toolbar: {
-    marginTop: "5px",
-    background: "#FFFFFF",
   },
 }));
 
 const AppMenu: FC = () => {
-  const classes = useStyles();
-
   return (
-    <Fade in timeout={1000}>
-      <AppBar position="static" elevation={1} className={classes.toolbar}>
+    <StyledFade in timeout={1000}>
+      <AppBar
+        position="static"
+        elevation={1}
+        sx={{ marginTop: "5px", background: "#FFFFFF" }}
+      >
         <Toolbar>
           <IconButton
             edge="start"
             className={classes.menuButton}
             color="primary"
             aria-label="menu"
-            size="large">
+            size="large"
+          >
             <MenuIcon />
           </IconButton>
           <Typography color="primary" variant="h6" className={classes.title}>
@@ -40,7 +57,7 @@ const AppMenu: FC = () => {
           <Button color="primary">Login</Button>
         </Toolbar>
       </AppBar>
-    </Fade>
+    </StyledFade>
   );
 };
 

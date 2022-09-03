@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { styled } from '@mui/material/styles';
 import {
   FormControl,
   InputLabel,
@@ -8,28 +9,44 @@ import {
   TextField,
 } from "@mui/material";
 
-import makeStyles from "@mui/styles/makeStyles";
-
 import { TCoin } from "../../interfaces/TCoin";
 
-const useStyles = makeStyles((theme) => ({
-  inputGroup: {
+const PREFIX = 'InputGroup';
+
+const classes = {
+  inputGroup: `${PREFIX}-inputGroup`,
+  input: `${PREFIX}-input`,
+  formControl: `${PREFIX}-formControl`,
+  selectEmpty: `${PREFIX}-selectEmpty`,
+  coinWrapper: `${PREFIX}-coinWrapper`
+};
+
+const Root = styled('div')((
+  {
+    theme
+  }
+) => ({
+  [`&.${classes.inputGroup}`]: {
     height: "40px",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "flex-end",
   },
-  input: { width: "45%" },
-  formControl: {
+
+  [`& .${classes.input}`]: { width: "45%" },
+
+  [`& .${classes.formControl}`]: {
     width: "45%",
   },
-  selectEmpty: {
+
+  [`& .${classes.selectEmpty}`]: {
     marginTop: theme.spacing(2),
   },
-  coinWrapper: {
+
+  [`& .${classes.coinWrapper}`]: {
     display: "flex",
     alignItems: "center",
-  },
+  }
 }));
 
 interface InputGroupProps {
@@ -49,7 +66,7 @@ const InputGroup: FC<InputGroupProps> = ({
   setInputValue,
   readOnly = false,
 }) => {
-  const classes = useStyles();
+
 
   const handleSelectChange = (
     event: SelectChangeEvent<string>,
@@ -65,7 +82,7 @@ const InputGroup: FC<InputGroupProps> = ({
   };
 
   return (
-    <div className={classes.inputGroup}>
+    <Root className={classes.inputGroup}>
       <TextField
         variant="standard"
         id="cryptoInput"
@@ -103,7 +120,7 @@ const InputGroup: FC<InputGroupProps> = ({
             ))}
         </Select>
       </FormControl>
-    </div>
+    </Root>
   );
 };
 
