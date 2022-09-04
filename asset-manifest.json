@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/CryptoVizor/static/css/main.a9c0d55b.chunk.css",
-    "main.js": "/CryptoVizor/static/js/main.8e998e8c.chunk.js",
-    "main.js.map": "/CryptoVizor/static/js/main.8e998e8c.chunk.js.map",
+    "main.js": "/CryptoVizor/static/js/main.4b8a624e.chunk.js",
+    "main.js.map": "/CryptoVizor/static/js/main.4b8a624e.chunk.js.map",
     "runtime-main.js": "/CryptoVizor/static/js/runtime-main.5d2c207d.js",
     "runtime-main.js.map": "/CryptoVizor/static/js/runtime-main.5d2c207d.js.map",
-    "static/js/2.1433b942.chunk.js": "/CryptoVizor/static/js/2.1433b942.chunk.js",
-    "static/js/2.1433b942.chunk.js.map": "/CryptoVizor/static/js/2.1433b942.chunk.js.map",
+    "static/js/2.c22c2acd.chunk.js": "/CryptoVizor/static/js/2.c22c2acd.chunk.js",
+    "static/js/2.c22c2acd.chunk.js.map": "/CryptoVizor/static/js/2.c22c2acd.chunk.js.map",
     "index.html": "/CryptoVizor/index.html",
-    "precache-manifest.d3c8ab7b1385890cccb617493605a831.js": "/CryptoVizor/precache-manifest.d3c8ab7b1385890cccb617493605a831.js",
+    "precache-manifest.ef21041fe915c95e3618c4783dd1b064.js": "/CryptoVizor/precache-manifest.ef21041fe915c95e3618c4783dd1b064.js",
     "service-worker.js": "/CryptoVizor/service-worker.js",
     "static/css/main.a9c0d55b.chunk.css.map": "/CryptoVizor/static/css/main.a9c0d55b.chunk.css.map",
-    "static/js/2.1433b942.chunk.js.LICENSE.txt": "/CryptoVizor/static/js/2.1433b942.chunk.js.LICENSE.txt"
+    "static/js/2.c22c2acd.chunk.js.LICENSE.txt": "/CryptoVizor/static/js/2.c22c2acd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5d2c207d.js",
-    "static/js/2.1433b942.chunk.js",
+    "static/js/2.c22c2acd.chunk.js",
     "static/css/main.a9c0d55b.chunk.css",
-    "static/js/main.8e998e8c.chunk.js"
+    "static/js/main.4b8a624e.chunk.js"
   ]
 }
