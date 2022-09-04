@@ -5,17 +5,17 @@
     "main.js.map": "/CryptoVizor/static/js/main.8e998e8c.chunk.js.map",
     "runtime-main.js": "/CryptoVizor/static/js/runtime-main.5d2c207d.js",
     "runtime-main.js.map": "/CryptoVizor/static/js/runtime-main.5d2c207d.js.map",
-    "static/js/2.e83973a0.chunk.js": "/CryptoVizor/static/js/2.e83973a0.chunk.js",
-    "static/js/2.e83973a0.chunk.js.map": "/CryptoVizor/static/js/2.e83973a0.chunk.js.map",
+    "static/js/2.1433b942.chunk.js": "/CryptoVizor/static/js/2.1433b942.chunk.js",
+    "static/js/2.1433b942.chunk.js.map": "/CryptoVizor/static/js/2.1433b942.chunk.js.map",
     "index.html": "/CryptoVizor/index.html",
-    "precache-manifest.a1e8a0f4771362d2d5983de69736bcd4.js": "/CryptoVizor/precache-manifest.a1e8a0f4771362d2d5983de69736bcd4.js",
+    "precache-manifest.d3c8ab7b1385890cccb617493605a831.js": "/CryptoVizor/precache-manifest.d3c8ab7b1385890cccb617493605a831.js",
     "service-worker.js": "/CryptoVizor/service-worker.js",
     "static/css/main.a9c0d55b.chunk.css.map": "/CryptoVizor/static/css/main.a9c0d55b.chunk.css.map",
-    "static/js/2.e83973a0.chunk.js.LICENSE.txt": "/CryptoVizor/static/js/2.e83973a0.chunk.js.LICENSE.txt"
+    "static/js/2.1433b942.chunk.js.LICENSE.txt": "/CryptoVizor/static/js/2.1433b942.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5d2c207d.js",
-    "static/js/2.e83973a0.chunk.js",
+    "static/js/2.1433b942.chunk.js",
     "static/css/main.a9c0d55b.chunk.css",
     "static/js/main.8e998e8c.chunk.js"
   ]

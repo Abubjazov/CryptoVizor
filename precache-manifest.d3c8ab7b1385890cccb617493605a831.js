@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "df73c7e997e6b934e0e6ffa44faefabc",
+    "revision": "6e9393f9b6fe6bf081a5d2787451600f",
     "url": "/CryptoVizor/index.html"
   },
   {
@@ -8,12 +8,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/CryptoVizor/static/css/main.a9c0d55b.chunk.css"
   },
   {
-    "revision": "a6cda9d594c2c2164f14",
-    "url": "/CryptoVizor/static/js/2.e83973a0.chunk.js"
+    "revision": "d6bc1c19e831dbfa9bc5",
+    "url": "/CryptoVizor/static/js/2.1433b942.chunk.js"
   },
   {
-    "revision": "bcea7869484a5f23b9d9ab4fe85414e3",
-    "url": "/CryptoVizor/static/js/2.e83973a0.chunk.js.LICENSE.txt"
+    "revision": "89df1a173f7b4fcf303a6ddfab24ff61",
+    "url": "/CryptoVizor/static/js/2.1433b942.chunk.js.LICENSE.txt"
   },
   {
     "revision": "1ff06a00fac9411518e5",
